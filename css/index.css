@@ -1,0 +1,16 @@
+.box {
+  width: 400px;
+  height: 400px;
+  background: #00ff66; }
+  .box p {
+    width: 100px;
+    height: 100px;
+    background: #e9eaed;
+    font-size: 18px; }
+    .box p p > section {
+      border: 1px solid #ccc; }
+  .box a {
+    text-decoration: none;
+    color: #333333; }
+    .box a:hover {
+      color: #00c1de; }

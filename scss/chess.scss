@@ -1,0 +1,71 @@
+@import "var";
+@import "mixin";
+
+.box{
+  width: $w;
+  height: $w;
+  box-sizing: border-box;
+  margin: 0 auto;
+  position: relative;
+  //background: rgb(217,176,146);
+  background-image: url("../backImg.jpg");
+}
+.chess{
+  width: 2 * $r;
+  height: 2 * $r;
+  border-radius: 50%;
+  position: relative;
+  float: left;
+}
+.white{
+   background:radial-gradient(10px 10px at 10px 10px,#fff,#e2e2e2);
+   box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+ }
+.black{
+  background: radial-gradient(10px 10px at 10px 10px,#fff,#333);
+  box-shadow:2px 2px 8px rgba(0,0,0,0.4);
+}
+.row{
+  width: $w - $r*2;
+  height: 1px;
+  background: #333333;
+  position: absolute;
+  left: $r;
+  transform: translate3d( -200%, 0 , 0);
+  animation: through 1s 1 ease-in forwards;
+}
+.clomn{
+  width: 1px;
+  height: $w - $r*2;
+  background: #333333;
+  position: absolute;
+  top: $r;
+  transform: translate3d( 0, -200% , 0);
+  animation: down 1s 1 ease-in forwards;
+}
+@for $i from 1 through 15{
+  .row:nth-of-type(#{$i}){
+    top: (2*$i - 1) * $r;
+    animation-delay:  50ms * $i;
+  }
+  .clomn:nth-of-type(#{$i}){
+    left: (2*$i - 1) * $r;
+    animation-delay:  50ms * $i;
+  }
+}
+@keyframes through {
+  from{
+    transform: translate3d( -200%, 0 , 0);
+  }
+  to{
+    transform: translate3d( 0, 0 , 0);
+  }
+}
+@keyframes down {
+  from{
+    transform: translate3d( 0, -200% , 0);
+  }
+  to{
+    transform: translate3d( 0, 0 , 0);
+  }
+}
